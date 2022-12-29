@@ -1,0 +1,123 @@
+#include <iostream>
+using namespace std;
+//---------BUBBLE SORT--------------//
+void bubble()
+{
+   int n,i,j,temp;
+   cout<<"BUBBLE SORT"<<endl;
+   cout<<"ENTER THE NUMBER OF ELEMENTS YOU WANT "<<endl;
+   cin>>n;
+   int a[n];
+   for(int i=0;i<n;i++)
+   {
+       cout<<"ENTER THE ELEMENT"<<i+1<<endl;
+       cin>>a[i];
+   }
+    for(i=0;i<n;i++)
+    {
+        for(j=i+1;j<n;j++)
+        {
+            if(a[i]>a[j])
+            {
+                temp=a[i];
+                a[i]=a[j];
+                a[j]=temp;
+            }
+        }
+    }
+      cout<<"ELEMENTS SORTED IN BUBBLE SORT : ";
+      for(i=0;i<n;i++)
+      {
+          cout<<a[i];
+      }
+}
+//----------INSERTION SORT------------//
+void insertion()
+{
+   int n,i,j,temp;
+   cout<<"INSERTION SORT"<<endl;
+   cout<<"ENTER THE NUMBER OF ELEMENTS YOU WANT "<<endl;
+   cin>>n;
+   int a[n];
+   for(int i=0;i<n;i++)
+   {
+       cout<<"ENTER THE ELEMENT"<<i+1<<endl;
+       cin>>a[i];
+   }
+    for(i=1;i<n;i++)
+    {
+        temp=a[i];
+        j=i+1;
+        while(j>0 && temp>a[i])
+        {
+           a[j+1]=a[j];
+           j--;
+        }
+        a[j+1]=temp;
+    }
+      cout<<"ELEMENTS SORTED IN INSERTION SORT : ";
+      for(i=0;i<n;i++)
+      {
+          cout<<a[i];
+      }
+}
+
+//----------SELECTION SORT-----------//
+void selection()
+{
+   cout<<"SELECTI0N SORT"<<endl;
+   int n,i,j,temp,min=0;
+   cout<<"ENTER THE NUMBER OF ELEMENTS YOU WANT "<<endl;
+   cin>>n;
+   int a[n];
+   for(int i=0;i<n;i++)
+   {
+       cout<<"ENTER THE ELEMENT"<<i+1<<endl;
+       cin>>a[i];
+   }
+    for(i=0;i<n-1;i++)
+    {
+        min=i;
+        for(j=i+1;j<n;j++)
+        {
+            if(a[j]<a[min])
+            {
+                min=j;
+            }
+        }
+        if(min !=i)
+        {
+             temp=a[i];
+             a[i]=a[j];
+             a[j]=temp;
+        }
+    }
+      cout<<"ELEMENTS SORTED IN SELECTION SORT : ";
+      for(i=0;i<n;i++)
+      {
+          cout<<a[i];
+      }
+}
+
+int main()
+{
+   cout<<" ALL SORTING TECHNICS "<<endl;
+   int choice=0;
+   while(choice!=4)
+   {
+       cout<<"\nENTER THE SORTING MEHTOD YOU WANT"<<endl;
+       cout<<"1:BUBBLE SORT"<<endl;
+       cout<<"2:INSERTION SORT"<<endl;
+       cout<<"3:SELECTION SORT"<<endl;
+       cout<<"4:EXIT"<<endl;
+       cin>>choice;
+       switch(choice)
+       {
+           case 1:bubble();break;
+           case 2:insertion();break;
+           case 3:selection();break;
+           case 4:exit(0);break;
+           default:cout<<"ENTER THE CORRECT CHOICE"<<endl;
+       }
+    }
+}
